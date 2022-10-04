@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Место</title>
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="page">
+    <div>
+      <header class="header">
+        <img src="images/header__logo.svg" alt="Место" class="header__logo" />
+      </header>
+      <main>
+        <section class="profile">
+          <img
+            src="images/profile__kusto.jpg"
+            alt="Фото Жака-Ива Кусто"
+            class="profile__avatar"
+          />
+          <div class="profile__wrapper">
+            <div class="profile__rename">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="profile__change"></button>
+            </div>
+            <p class="profile__job">Исследователь океана</p>
+          </div>
+          <button class="profile__submit"></button>
+        </section>
+        <section class="cards">
+          <ul class="cards__list">
+            <li class="card__list-item">
+              <img
+                src="images/card__karachaevsk.jpg"
+                alt="Заброшенная церковь в горах Карачаевска"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Карачаево-Черкессия</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+            <li class="card__list-item">
+              <img
+                src="images/card__elbrus.jpg"
+                alt="Эльбрус на рассвете"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Гора Эльбрус</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+            <li class="card__list-item">
+              <img
+                src="images/card__dombay.jpg"
+                alt="Домбай в пасмурную погоду"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Домбай</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+            <li class="card__list-item">
+              <img
+                src="images/card__tailand.jpg"
+                alt="Лодки в море"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Тайланд</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+            <li class="card__list-item">
+              <img
+                src="images/card__venezia.jpg"
+                alt="Канал и мост"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Венеция</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+            <li class="card__list-item">
+              <img
+                src="images/card__santa-cruz.jpg"
+                alt="Маяк в Санта Круз, США"
+                class="card__image"
+              />
+              <div class="card__name">
+                <p class="card__text">Санта Круз</p>
+                <button class="card__like"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">&#169; 2020 Mesto Russia</p>
+      </footer>
+      <section class="popup">
+        <div class="popup__container">
+          <button class="popup__close"></button>
+          <form class="popup_opened">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input type="text" class="popup__input popup__name" value="Жак-Ив Кусто" />
+            <input
+              type="text"
+              class="popup__input popup__job"
+              value="Исследователь океана"
+            />
+            <button type="submit" class="popup__save">Сохранить</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

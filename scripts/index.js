@@ -1,6 +1,6 @@
 const openForm = document.querySelector('.profile__change');
 const formElement = document.querySelector('.popup');
-const Form_active = 'popup_active';
+const Form_active = 'popup_opened';
 const closeProfileBtn = document.querySelector('.popup__close');
 const nameInput = document.querySelector('.popup__name');
 const jobInput = document.querySelector('.popup__job');

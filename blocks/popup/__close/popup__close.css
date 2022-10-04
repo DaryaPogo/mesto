@@ -6,7 +6,7 @@
   right: 0;
   height: 20px;
   width: 20px;
-  transition: 0.5 linear;
+  transition: 0.5s linear;
 }
 
 .popup__close:hover {

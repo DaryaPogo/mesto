@@ -1,9 +1,9 @@
-.cards {
+.card {
   padding-top: 36px;
 }
 
 @media screen and (min-width: 1280px) {
-  .cards {
+  .card {
     padding-top: 51px;
   }
 }

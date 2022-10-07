@@ -1,4 +1,3 @@
 .card__like_active {
-  display: none;
   background: url(../../../../images/like_active.svg) no-repeat;
 }

@@ -5,6 +5,7 @@
   width: 18px;
   border: 1px solid #FFFFFF;
   transition: 0.8s linear;
+  margin: 0 19px 0 10px;
 }
 
 .profile__change:hover {

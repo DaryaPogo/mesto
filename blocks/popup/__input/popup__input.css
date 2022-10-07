@@ -7,4 +7,17 @@
   max-width: 358px;
   box-sizing: border-box;
   padding-bottom: 8px;
+  border: 0;
+  margin: 0 0 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.popup__input:last-child {
+  margin: 0 0 45px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__input:nth-last-of-type() {
+    margin-bottom: 0 0 51px;
+  }
 }

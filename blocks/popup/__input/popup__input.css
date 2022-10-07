@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__input:nth-last-of-type() {
+  .popup__input:last-child {
     margin-bottom: 0 0 51px;
   }
 }

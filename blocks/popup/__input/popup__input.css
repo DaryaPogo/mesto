@@ -13,11 +13,11 @@
 }
 
 .popup__input:last-child {
-  margin: 0 0 45px;
+  margin-bottom: 45px;
 }
 
 @media screen and (min-width: 1280px) {
   .popup__input:last-child {
-    margin-bottom: 0 0 51px;
+    margin-bottom:51px;
   }
 }

@@ -12,9 +12,9 @@
 
 @media screen and (min-width: 1280px) {
   .profile__job {
-  font-size: 18px;
-  max-width: 336px;
-  line-height: 22px;
-  margin-top: 8px;
+    font-size: 18px;
+    max-width: 336px;
+    line-height: 22px;
+    margin-top: 8px;
   }
 }

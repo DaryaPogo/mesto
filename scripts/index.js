@@ -23,7 +23,7 @@ const cardTemplate = document
 
 const popupImageText = document.querySelector(".popup__image-text");
 const popupImage = document.querySelector(".popup__image");
-const popupImageForm = document.querySelector(".popup__image-form");
+const popupImageForm = document.querySelector(".popup-image");
 const popupImageClose = document.querySelector(".popup__close-image-form");
 
 const closePopupProfile = document.querySelector(".popup__close-profile");

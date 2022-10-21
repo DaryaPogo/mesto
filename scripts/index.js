@@ -84,7 +84,6 @@ function formSubmitHandler(event) {
 }
 
 const cardElement = (item) => {
-  // разобраться с .card__image
   const element = cardTemplate.cloneNode(true);
   const elementName = element.querySelector(".card__text");
   const elementImage = element.querySelector(".card__image");

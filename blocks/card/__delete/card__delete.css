@@ -6,7 +6,7 @@
   right: 20px;
   top: 20px;
   border: none;
-  transition: 0.3 linear;
+  transition: 0.3s linear;
 }
 
 .card__delete:hover {

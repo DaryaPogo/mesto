@@ -1,5 +1,7 @@
 .popup {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
   position: fixed;
   left: 0;
   top: 0;
@@ -10,6 +12,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 @media screen and (min-width: 1280px) {

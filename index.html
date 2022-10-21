@@ -28,83 +28,17 @@
         <button class="profile__submit" type="button"></button>
       </section>
       <section class="card">
-        <ul class="card__list">
-          <li class="card__item">
-            <img
-              src="images/card__karachaevsk.jpg"
-              alt="Заброшенная церковь в горах Карачаевска"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h3 class="card__text">Карачаево-Черкессия</h3>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              src="images/card__elbrus.jpg"
-              alt="Эльбрус на рассвете"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h2 class="card__text">Гора Эльбрус</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              src="images/card__dombay.jpg"
-              alt="Домбай в пасмурную погоду"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h2 class="card__text">Домбай</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              src="images/card__tailand.jpg"
-              alt="Лодки в море"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h2 class="card__text">Тайланд</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              src="images/card__venezia.jpg"
-              alt="Канал и мост"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h2 class="card__text">Венеция</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-          <li class="card__item">
-            <img
-              src="images/card__santa-cruz.jpg"
-              alt="Маяк в Санта Круз, США"
-              class="card__image"
-            />
-            <div class="card__name">
-              <h2 class="card__text">Санта Круз</h2>
-              <button class="card__like" type="button"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="card__list"></ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">&#169; 2020 Mesto Russia</p>
     </footer>
-    <section class="popup">
+
+    <section class="popup popup-profile">
       <div class="popup__container">
-        <button class="popup__close" type="button"></button>
-        <form class="popup__form" name="rename">
+        <button class="popup__close popup__close-profile" type="button"></button>
+        <form class="popup__form popup__form-profile" name="rename">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
             type="text"
@@ -122,6 +56,48 @@
         </form>
       </div>
     </section>
+
+    <section class="popup popup-place">
+      <div class="popup__container">
+        <button class="popup__close popup__close-place" type="button"></button>
+        <form class="popup__form popup__form-place" name="addPlace">
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            type="text"
+            class="popup__input popup__input_type_place"
+            name="place"
+            placeholder="Название"
+          />
+          <input
+            type="text"
+            class="popup__input popup__input_type_link"
+            name="link"
+            placeholder="Ссылка на картинку"
+          />
+          <button type="submit" class="popup__save">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup__image-form">
+      <div class="popup__cotainer-image">
+        <button class="popup__close popup__close-image-form" type="button"></button>
+        <img class="popup__image" />
+        <h3 class="popup__image-text"></h3>
+      </div>
+    </section>
+
+    <template id="card-template">
+      <li class="card__item">
+        <img class="card__image" />
+        <button class="card__delete" type="button"></button>
+        <div class="card__name">
+          <h3 class="card__text"></h3>
+          <button class="card__like" type="button"></button>
+        </div>
+      </li>
+    </template>
+
     <script src="scripts/index.js"></script>
   </body>
 </html>

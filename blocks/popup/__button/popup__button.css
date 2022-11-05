@@ -1,4 +1,4 @@
-.popup__save {
+.popup__button {
   transition: 0.2s linear;
   margin: 0;
   background: #000000;
@@ -12,13 +12,13 @@
   line-height: 17px;
 }
 
-.popup__save:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
 @media screen and (min-width: 1280px) {
-  .popup__save {
+  .popup__button {
     min-height: 50px;
     font-size: 18px;
     line-height: 22px;

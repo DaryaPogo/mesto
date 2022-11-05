@@ -58,6 +58,8 @@ const initialCards = [
 
 function openPopup(popup) {
   popup.classList.add(popupActiveClass);
+  popup.addEventListener("mousedown", overlayHandler);
+  document.addEventListener("keydown", keyHandler);
 }
 
 function openProfilePopup() {
@@ -68,11 +70,28 @@ function openProfilePopup() {
 
 function openPlacePopup() {
   openPopup(popupPlace);
+  const btnAddPlace = popupPlace.querySelector(".popup__button");
+  disabledButton(btnAddPlace, "popup__button_disabled");
 }
 
 function closePopup(popup) {
   popup.classList.remove(popupActiveClass);
+  document.removeEventListener("keydown", keyHandler);
 }
+
+const keyHandler = (event) => {
+  if (event.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+};
+
+const overlayHandler = (event) => {
+  if (event.target.classList.contains("popup_opened")) {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+};
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();

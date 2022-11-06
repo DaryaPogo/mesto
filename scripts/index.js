@@ -24,12 +24,9 @@ const popupImage = document.querySelector(".popup__image");
 const popupImageForm = document.querySelector(".popup-image");
 const popupImageClose = document.querySelector(".popup__close-image-form");
 
-const popupProfileClose = document.querySelector(".popup__close-profile");
-const popupPlaceClose = document.querySelector(".popup__close-place");
-
 function openPopup(popup) {
   popup.classList.add(popupActiveClass);
-  popup.addEventListener("mousedown", overlayHandler);
+  document.addEventListener("keydown", keyHandler);
 }
 
 function openProfilePopup() {
@@ -55,7 +52,7 @@ const keyHandler = (event) => {
   }
 };
 
-const overlayHandler = (event) => {
+const closeHandler = (event) => {
   if (event.target.classList.contains("popup_opened") || event.target.classList.contains("popup__close")) {
     closePopup(event.currentTarget);
   }
@@ -129,7 +126,9 @@ const openImage = (elementName, elementImage) => {
   popupImage.alt = elementName.textContent;
 };
 
-document.addEventListener("keydown", keyHandler);
+popupPlace.addEventListener("mousedown", closeHandler);
+popupImageForm.addEventListener("mousedown", closeHandler);
+popupProfile.addEventListener("mousedown", closeHandler);
 popupProfileOpenBtn.addEventListener("click", openProfilePopup);
 popupPlaceOpenBtn.addEventListener("click", openPlacePopup);
 formProfile.addEventListener("submit", handleProfileFormSubmit);

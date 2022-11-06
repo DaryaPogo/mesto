@@ -1,5 +1,5 @@
-const openPopupProfileBtn = document.querySelector(".profile__change");
-const openPopupPlaceBtn = document.querySelector(".profile__submit");
+const popupProfileOpenBtn = document.querySelector(".profile__change");
+const popupPlaceOpenBtn = document.querySelector(".profile__submit");
 const popupActiveClass = "popup_opened";
 const popupName = document.querySelector(".popup__input_type_name");
 const popupJob = document.querySelector(".popup__input_type_job");
@@ -11,11 +11,9 @@ const formPlace = document.querySelector(".popup__form-place");
 const popupPlaceName = document.querySelector(".popup__input_type_place");
 const popupLinkPlace = document.querySelector(".popup__input_type_link");
 
-const closePopupBtn = document.querySelector(".popup__close");
-
 const popupProfile = document.querySelector(".popup-profile");
 const popupPlace = document.querySelector(".popup-place");
-
+const btnAddPlace = popupPlace.querySelector(".popup__button");
 const cardList = document.querySelector(".card__list");
 const cardTemplate = document
   .querySelector("#card-template")
@@ -26,40 +24,12 @@ const popupImage = document.querySelector(".popup__image");
 const popupImageForm = document.querySelector(".popup-image");
 const popupImageClose = document.querySelector(".popup__close-image-form");
 
-const closePopupProfile = document.querySelector(".popup__close-profile");
-const closePopupPlace = document.querySelector(".popup__close-place");
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+const popupProfileClose = document.querySelector(".popup__close-profile");
+const popupPlaceClose = document.querySelector(".popup__close-place");
 
 function openPopup(popup) {
   popup.classList.add(popupActiveClass);
   popup.addEventListener("mousedown", overlayHandler);
-  document.addEventListener("keydown", keyHandler);
 }
 
 function openProfilePopup() {
@@ -70,7 +40,6 @@ function openProfilePopup() {
 
 function openPlacePopup() {
   openPopup(popupPlace);
-  const btnAddPlace = popupPlace.querySelector(".popup__button");
   disabledButton(btnAddPlace, "popup__button_disabled");
 }
 
@@ -87,9 +56,8 @@ const keyHandler = (event) => {
 };
 
 const overlayHandler = (event) => {
-  if (event.target.classList.contains("popup_opened")) {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup);
+  if (event.target.classList.contains("popup_opened") || event.target.classList.contains("popup__close")) {
+    closePopup(event.currentTarget);
   }
 };
 
@@ -142,8 +110,7 @@ const placeSubmit = (event) => {
   });
 
   closePopup(popupPlace);
-  popupPlaceName.value = "";
-  popupLinkPlace.value = "";
+  popupPlace.reset();
 };
 
 const clickLike = (elementLike) => {
@@ -161,16 +128,8 @@ const openImage = (elementName, elementImage) => {
   popupImage.alt = elementName.textContent;
 };
 
-openPopupProfileBtn.addEventListener("click", openProfilePopup);
-openPopupPlaceBtn.addEventListener("click", openPlacePopup);
-closePopupPlace.addEventListener("click", () => {
-  closePopup(popupPlace);
-});
-closePopupProfile.addEventListener("click", () => {
-  closePopup(popupProfile);
-});
-popupImageClose.addEventListener("click", () => {
-  closePopup(popupImageForm);
-});
+document.addEventListener("keydown", keyHandler);
+popupProfileOpenBtn.addEventListener("click", openProfilePopup);
+popupPlaceOpenBtn.addEventListener("click", openPlacePopup);
 formProfile.addEventListener("submit", handleProfileFormSubmit);
 formPlace.addEventListener("submit", placeSubmit);

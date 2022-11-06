@@ -110,7 +110,8 @@ const placeSubmit = (event) => {
   });
 
   closePopup(popupPlace);
-  popupPlace.reset();
+  popupPlaceName.value = ""; 
+  popupLinkPlace.value = ""; 
 };
 
 const clickLike = (elementLike) => {

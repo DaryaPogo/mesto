@@ -12,7 +12,11 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0.3s linear 0.1s, opacity 0.3s;
+}
+
+.popup-image {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 @media screen and (min-width: 1280px) {

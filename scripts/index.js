@@ -1,29 +1,26 @@
-import { Card } from "./createCard.js";
+import { Card } from "./card.js";
 import { FormValidation } from "./FormValidator.js";
 import { formValidationSelectors } from "./constants.js";
-import { initialCards } from "./card.js";
-export { popupImageForm, popupImageText, popupImage };
-
-const popupProfileOpenBtn = document.querySelector(".profile__change");
-const popupPlaceOpenBtn = document.querySelector(".profile__submit");
-const popupActiveClass = "popup_opened";
-const popupName = document.querySelector(".popup__input_type_name");
-const popupJob = document.querySelector(".popup__input_type_job");
-const profileName = document.querySelector(".profile__name");
-const profileJob = document.querySelector(".profile__job");
-const formProfile = document.querySelector(".popup__form-profile");
-
-const formPlace = document.querySelector(".popup__form-place");
-const popupPlaceName = document.querySelector(".popup__input_type_place");
-const popupLinkPlace = document.querySelector(".popup__input_type_link");
-
-const popupProfile = document.querySelector(".popup-profile");
-const popupPlace = document.querySelector(".popup-place");
-const cardsWrapper = document.querySelector(".card__list");
-
-const popupImageText = document.querySelector(".popup__image-text");
-const popupImage = document.querySelector(".popup__image");
-const popupImageForm = document.querySelector(".popup-image");
+import { initialCards } from "./cardMassiv.js";
+import {
+  popupProfileOpenBtn,
+  popupPlaceOpenBtn,
+  popupActiveClass,
+  popupName,
+  popupJob,
+  profileName,
+  profileJob,
+  formProfile,
+  formPlace,
+  popupPlaceName,
+  popupLinkPlace,
+  popupProfile,
+  popupPlace,
+  cardsWrapper,
+  popupImageText,
+  popupImage,
+  popupImageForm,
+} from './utils.js';
 
 function openPopup(popup) {
   popup.classList.add(popupActiveClass);
@@ -108,8 +105,8 @@ const placeSubmit = (event) => {
   });
 
   closePopup(popupPlace);
-  popupPlaceName.reset();
-  popupLinkPlace.reset();
+  popupPlaceName.value = "";
+  popupLinkPlace.value = "";
 };
 
 popupPlace.addEventListener("mousedown", closeHandler);

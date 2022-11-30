@@ -1,3 +1,4 @@
+import { popupImageForm, popupImageText, popupImage } from "./utils.js"
 export class Card {
   constructor(data, cardTemplate, openPopup) {
     this.data = data;

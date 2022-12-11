@@ -1,8 +1,7 @@
-import { popupImageForm, popupImageText, popupImage } from "./utils.js"
 export class Card {
   constructor(data, cardTemplate, openPopup) {
     this.data = data;
-    this.openPopup = openPopup;
+    this._openPopup = openPopup;
     this._getTemplate(cardTemplate);
   }
 
@@ -37,16 +36,9 @@ export class Card {
     return this._element;
   }
 
-  _openImage() {
-    popupImage.src = this.data.link;
-    popupImageText.textContent = this.data.name;
-    popupImage.alt = this.data.name;
-    this.openPopup(popupImageForm);
-  }
-
   _setListeners() {
     this._elementLike.addEventListener("click", () => this._clickLike());
     this._elementDelete.addEventListener("click", () => this._deleteCard());
-    this._elementImage.addEventListener("click", () => this._openImage());
+    this._elementImage.addEventListener("click", () => this._openPopup(this.data));
   }
 }

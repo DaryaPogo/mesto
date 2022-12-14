@@ -20,6 +20,8 @@ import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForm.js";
 import { UserInfo } from "./UserInfo.js";
 
+import '../pages/index.css'; // добавьте импорт главного файла стилей
+
 const formProfileValidator = new FormValidation(
   formValidationSelectors,
   popupProfile

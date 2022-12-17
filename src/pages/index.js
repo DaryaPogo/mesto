@@ -1,7 +1,7 @@
-import { Card } from "./card.js";
-import { FormValidation } from "./FormValidator.js";
-import { formValidationSelectors } from "./constants.js";
-import { initialCards } from "./cardMassiv.js";
+import { Card } from "../components/Card.js";
+import { FormValidation } from "../components/FormValidator.js";
+import { formValidationSelectors } from "../components/constants.js";
+import { initialCards } from "../components/cardMassiv.js";
 import {
   popupProfileOpenBtn,
   popupPlaceOpenBtn,
@@ -13,14 +13,14 @@ import {
   popupPlace,
   cardsWrapper,
   popupImageForm,
-} from "./utils.js";
-import { Section } from "./Section.js";
-import { Popup } from "./Popup.js";
-import { PopupWithImage } from "./PopupWithImage.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { UserInfo } from "./UserInfo.js";
+} from "../components/utils.js";
+import { Section } from "../components/Section.js";
+import { Popup } from "../components/Popup.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { UserInfo } from "../components/UserInfo.js";
 
-import '../pages/index.css'; // добавьте импорт главного файла стилей
+import './index.css'; // добавьте импорт главного файла стилей
 
 const formProfileValidator = new FormValidation(
   formValidationSelectors,
@@ -29,16 +29,10 @@ const formProfileValidator = new FormValidation(
 
 formProfileValidator.enableValidation();
 
-const popupProfileEvent = new Popup(popupProfile);
-popupProfileEvent.setEventListeners();
-
-const popupPlaceEvent = new Popup(popupPlace);
-popupPlaceEvent.setEventListeners();
-
 const popupImageEvent = new PopupWithImage(popupImageForm);
 popupImageEvent.setEventListeners();
 
-const popupProfileInfo = new UserInfo({ profileName, profileJob });
+const userInfo = new UserInfo({ profileName, profileJob });
 
 const cardList = new Section(
   {
@@ -63,41 +57,41 @@ const formPlaceValidator = new FormValidation(
 
 formPlaceValidator.enableValidation();
 
-const PopupWithFormProfile = new PopupWithForm(popupProfile, {
+const popupEditProfile = new PopupWithForm(popupProfile, {
   handlerSubmit: (item) => {
-    popupProfileInfo.setUserInfo({
+    userInfo.setUserInfo({
       name: item.name,
       job: item.job,
     });
   },
 });
 
-PopupWithFormProfile.setEventListeners();
+popupEditProfile.setEventListeners();
 
 function openProfilePopup() {
-  const { name, job } = popupProfileInfo.getUserInfo({});
+  const { name, job } = userInfo.getUserInfo({});
   popupName.value = name;
   popupJob.value = job;
-  popupProfileEvent.open();
+  popupEditProfile.open();
 }
 
 function openPlacePopup() {
-  popupPlaceEvent.open();
+  popupAddCard.open();
   formPlaceValidator.disabledButton();
 }
 
-const PopupWithFormPlace = new PopupWithForm(popupPlace, {
+const popupAddCard = new PopupWithForm(popupPlace, {
   handlerSubmit: (inputList) => {
-    cardList.addNewCard(createCard({
+    cardList.prependItem(createCard({
       name: inputList.place,
       link: inputList.link,
     }));
   },
 });
 
-PopupWithFormPlace.setEventListeners();
+popupAddCard.setEventListeners();
 
-cardList.renderer();
+cardList.rendererItems();
 
 popupProfileOpenBtn.addEventListener("click", openProfilePopup);
 popupPlaceOpenBtn.addEventListener("click", openPlacePopup);

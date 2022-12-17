@@ -1,17 +1,17 @@
 import { popupActiveClass } from "./utils.js";
 export class Popup {
-  constructor(popupSelector) {
-    this.popupSelector = popupSelector;
+  constructor(popupElement) {
+    this.popupElement = popupElement;
     this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   open() {
-    this.popupSelector.classList.add(popupActiveClass);
+    this.popupElement.classList.add(popupActiveClass);
     document.addEventListener("keydown", this._handleEscClose);
   }
 
   close() {
-    this.popupSelector.classList.remove(popupActiveClass);
+    this.popupElement.classList.remove(popupActiveClass);
     document.removeEventListener("keydown", this._handleEscClose);
   }
 
@@ -22,7 +22,7 @@ export class Popup {
   }
 
   setEventListeners() {
-    this.popupSelector.addEventListener("mousedown", (event) => {
+    this.popupElement.addEventListener("mousedown", (event) => {
       if (
         event.target.classList.contains("popup_opened") ||
         event.target.classList.contains("popup__close")

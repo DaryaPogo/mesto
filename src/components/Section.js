@@ -4,7 +4,7 @@ export class Section {
     this._renderer = renderer;
     this._containerSelector = containerSelector;
   }
-  renderer() {
+  rendererItems() {
     this._items.forEach((element) => {
       this._renderer(element);
     });
@@ -12,7 +12,7 @@ export class Section {
   addItem(element) {
     this._containerSelector.append(element);
   }
-  addNewCard(element) {
+  prependItem(element) {
     this._containerSelector.prepend(element);
   }
 }

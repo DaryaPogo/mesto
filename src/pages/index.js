@@ -1,8 +1,8 @@
 import { Card } from "../components/Card.js";
 import { FormValidation } from "../components/FormValidator.js";
-import { formValidationSelectors } from "../components/constants.js";
-import { initialCards } from "../components/cardMassiv.js";
 import {
+  initialCards,
+  formValidationSelectors,
   popupProfileOpenBtn,
   popupPlaceOpenBtn,
   popupJob,
@@ -15,7 +15,6 @@ import {
   popupImageForm,
 } from "../components/utils.js";
 import { Section } from "../components/Section.js";
-import { Popup } from "../components/Popup.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";

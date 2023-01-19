@@ -2,7 +2,6 @@
   transition: 0.2s linear;
   background: url(../../../images/card__like.svg) no-repeat;
   border: 0;
-  margin-right: 20px;
   height: 19px;
   width: 22px;
   flex-shrink: 0;

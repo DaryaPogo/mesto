@@ -1,7 +1,8 @@
 export class UserInfo {
-  constructor({profileName, profileJob}) {
+  constructor(profileName, profileJob, popupAvatar) {
     this.name = profileName;
     this.job = profileJob;
+    this._avatar = popupAvatar;
   }
 
   getUserInfo() {
@@ -11,8 +12,13 @@ export class UserInfo {
     }
   }
 
-  setUserInfo({name, job}) {
-    this.name.textContent = name;
-    this.job.textContent = job;
+  setUserInfo(item) {
+    this.name.textContent = item.name;
+    this.job.textContent = item.about;
   }
+
+  setUserAvatar(data) {
+    this._avatar.src = data.avatar;
+  }
+
 }

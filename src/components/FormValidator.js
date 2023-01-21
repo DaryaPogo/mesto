@@ -1,6 +1,5 @@
 export class FormValidation {
   constructor(formValidationSelectors, popup) {
-    this._formSelector = formValidationSelectors.formSelector;
     this._inputSelector = formValidationSelectors.inputSelector;
     this._submitButtonSelector = formValidationSelectors.submitButtonSelector;
     this._inactiveButtonClass = formValidationSelectors.inactiveButtonClass;
@@ -30,7 +29,7 @@ export class FormValidation {
     this.formSubmitButton.disabled = false;
   }
 
-  disabledButton() {
+  disableButton() {
     this.formSubmitButton.classList.add(this._inactiveButtonClass);
     this.formSubmitButton.disabled = true;
   }
@@ -48,7 +47,7 @@ export class FormValidation {
 
   _toggleButton(buttonState) {
     if (buttonState) {
-      this.disabledButton();
+      this.disableButton();
     } else {
       this._enableButton();
     }

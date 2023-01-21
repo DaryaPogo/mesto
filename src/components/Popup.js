@@ -1,4 +1,4 @@
-import { popupActiveClass } from "./utils.js";
+import { popupActiveClass } from "../utils/utils.js";
 export class Popup {
   constructor(popupElement) {
     this.popupElement = popupElement;

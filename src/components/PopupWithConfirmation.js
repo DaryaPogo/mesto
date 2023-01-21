@@ -1,17 +1,11 @@
 import { Popup } from "./Popup.js";
 export class PopupWithConfirmation extends Popup {
-  constructor(popupElement, { handelSubmit }) {
+  constructor(popupElement) {
     super(popupElement);
-    this.handelSubmit = this.handelSubmit;
   }
 
-  open() {
-    super.open();
-  }
-
-  handleSubmitConfirm(submit) {
-    this.handelSubmit = submit;
-    this.setEventListeners();
+  setSubmitCallback(handelSubmit) {
+    this.handelSubmit = handelSubmit;
   }
 
   setEventListeners() {

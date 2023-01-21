@@ -1,9 +1,7 @@
-import { data } from "autoprefixer";
-
 export class API {
-  constructor(сonfig) {
-    this.headers = сonfig.headers;
-    this.baseUrl = сonfig.baseUrl;
+  constructor(config) {
+    this.headers = config.headers;
+    this.baseUrl = config.baseUrl;
   }
 
   _getResponse(res) {
@@ -17,18 +15,14 @@ export class API {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: this.headers,
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   getCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
       headers: this.headers,
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   editProfile(item) {
@@ -39,9 +33,7 @@ export class API {
         name: item.name,
         about: item.job,
       }),
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   addNewCard(inputList) {
@@ -52,36 +44,28 @@ export class API {
         name: inputList.place,
         link: inputList.link,
       }),
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   cardLike(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this.headers,
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
-  cardDeleteLike(id) {
-    return fetch(`${this.baseUrl}/cards/${id}/likes`, {
+  cardDeleteLike(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this.headers,
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 
   changeAvatar(user) {
@@ -91,8 +75,6 @@ export class API {
       body: JSON.stringify({
         avatar: user.avatar,
       }),
-    }).then((res) => {
-      return this._getResponse(res);
-    });
+    }).then(this._getResponse);
   }
 }

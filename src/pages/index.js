@@ -84,7 +84,7 @@ const createCard = (data) => {
     "#card-template",
     popupImageEvent.open,
     userId,
-    async () => {
+    () => {
       popupDeleteCard.open();
       popupDeleteCard.setSubmitCallback(() => {
         api
@@ -98,10 +98,21 @@ const createCard = (data) => {
           });
       });
     },
-    async () => {
-      if (card.compareId()) {
-        api.cardDeleteLike(data._id).then((data) => card.handleLikeClick(data));
-      } else api.cardLike(data._id).then((data) => card.handleLikeClick(data));
+    () => {
+      if (card.isLiked()) {
+        api
+          .cardDeleteLike(data._id)
+          .then((data) => card.updateLikes(data))
+          .catch((err) => {
+            console.log(err);
+          });
+      } else
+        api
+          .cardLike(data._id)
+          .then((data) => card.updateLikes(data))
+          .catch((err) => {
+            console.log(err);
+          });
     }
   );
   const element = card.create();
@@ -133,7 +144,6 @@ popupEditProfile.setEventListeners();
 
 function openProfilePopup() {
   const user = userInfo.getUserInfo();
-  console.log(user);
   popupName.value = user.name;
   popupJob.value = user.job;
   popupEditProfile.open();

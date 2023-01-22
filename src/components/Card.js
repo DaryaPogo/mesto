@@ -11,11 +11,10 @@ export class Card {
   }
 
   _handleLike() {
-    this._checkIsLiked();
     this._onLike(this);
   }
 
-  handleLikeClick(data) {
+  updateLikes(data) {
     this.data = data;
     this._likes = this.data.likes;
     this._elementLikeQuantity.textContent = this._likes.length;
@@ -56,13 +55,13 @@ export class Card {
     return this._element;
   }
 
-  compareId() {
+  isLiked() {
     if (this.data.likes.find((like) => like._id === this.userId))
     return true
   }
 
   _checkIsLiked() {
-    if (this.compareId()) {
+    if (this.isLiked()) {
       this._elementLike.classList.add("card__like_active");}
     else{
       this._elementLike.classList.remove("card__like_active");}
